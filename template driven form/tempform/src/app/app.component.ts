@@ -11,5 +11,7 @@ export class AppComponent {
   topics = ["c" , "c++", "java" ];
 // binding html 
 userModel = new User ("ting", "t@ing.pu", "7245627255" , "c" , "morning")
-
+save(){
+  alert("submitted")
+}
 }

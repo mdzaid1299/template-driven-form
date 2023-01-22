@@ -1,9 +1,12 @@
 <h1>registration form</h1>
 {{userForm.value | json}}
-<form #userForm="ngForm">
+<br>
+{{userForm.valid}}
+<form #userForm="ngForm" (ngSubmit)="save()">
   <div class="form-group">
     <label for="name" >Username</label>
-  <input type = "text" class="form-control" name = "username" ngModel>
+  <input type = "text" class="form-control" name = "username" [(ngModel)]="userModel.username" required=""
+  [class.is-invalid]="user.invalid">
   </div>
 <div class="form-control">
   <label for="email">Enter Email</label>
