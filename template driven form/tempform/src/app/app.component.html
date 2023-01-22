@@ -6,12 +6,13 @@
   <div class="form-group">
     <label for="name" >Username</label>
   <input type = "text" class="form-control" name = "username" [(ngModel)]="userModel.username" required=""
-  [class.is-invalid]="user.invalid">
+  [class.is-invalid]="user.invalid && user.touched">
+  //todo
   </div>
 <div class="form-control">
   <label for="email">Enter Email</label>
   <input type="email" class="form-control" name = "email"ngModel>
-
+<div class="alert " [hidden]="email.valid || email.pristine">Username is reuired</div>
 </div>
 <div class="form-group">
   <label for="phone"> Enter phone</label>
@@ -32,5 +33,18 @@
     <label for="">evening 4pm se 7pm</label>
   </div>
   <input type="submit" class="btn btn-primary">
+  <button (click)="userForm.resetForm()" type="reset">cancel</button>
+  <div class="m-3 p-3" [hidden]="! submitted">
+    <h2>You submitted the following: </h2> I
+    <div class="row">
+    <div class="col-xs-3">User Name</div>
+    <div class="col-xs-9">{{ user.username }}</div>
+    <div class="row">
+    <div class="col-xs-3">Email</div>
+    <div class="col-xs-9">{{ user.email }} </div>
+    <div class="row">
+    <div class="col-xs-3">Phone</div>
+    <div class="col-xs-9">{{ user.phone }} </div>
+    </div>
 </div>
 </form>
